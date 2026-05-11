@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pacientes - SERMEDENT</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="container">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>SERMEDENT</h2>
+            <p>Clínica Médica y Dental</p>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Panel Principal</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li class="active"><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="historial.html">Historial Clínico</a></li>
+                <li><a href="inventario.html">Inventario</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </nav>
+        <div class="user-panel">
+            <p id="nombreUsuario">-</p>
+            <span id="rolUsuario">-</span>
+            <br><a href="login.html" id="btnLogout" style="color:#ccc;font-size:12px;text-decoration:none;">Cerrar sesión</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Pacientes</h1>
+                <p>Registro de pacientes de la clínica</p>
+            </div>
+            <input type="text" id="buscar" placeholder="Buscar por nombre o DNI..." />
+        </header>
+
+        <div class="panel" style="margin-top:20px;">
+            <div class="panel-header">
+                <h2>Lista de Pacientes</h2>
+                <button class="btn-cita" id="btnNuevoPaciente">+ Nuevo paciente</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Registro</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaPacientes">
+                    <tr><td colspan="6" style="text-align:center;color:#999;">Cargando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+<button class="floating-btn" id="btnFlotante">+</button>
+
+<!-- Modal nuevo paciente -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Nuevo Paciente</h2>
+        <form id="formPaciente">
+            <input type="text" id="dni" placeholder="DNI *" required />
+            <input type="text" id="nombres" placeholder="Nombres *" required />
+            <input type="text" id="apellidos" placeholder="Apellidos *" required />
+            <input type="text" id="telefono" placeholder="Teléfono" />
+            <input type="email" id="email" placeholder="Email" />
+            <p id="mensajePaciente" style="font-size:13px;margin-top:5px;"></p>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/pacientes.js"></script>
+</body>
+</html>

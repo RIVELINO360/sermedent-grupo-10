@@ -1,0 +1,171 @@
+<!-- GRUP0 10 DE INGEÑERIA WEB -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SERMEDENT - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>SERMEDENT</h2>
+                <p>Clínica Médica y Dental</p>
+            </div>
+
+            <nav class="menu">
+                <ul>
+                    <li class="active"><a href="index.html">Panel Principal</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="pacientes.html">Pacientes</a></li>
+                    <li><a href="historial.html">Historial Clínico</a></li>
+                    <li><a href="inventario.html">Inventario</a></li>
+                    <li><a href="usuarios.html">Usuarios</a></li>
+                    <li><a href="#">Configuración</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-panel">
+                <p id="nombreUsuario">-</p>
+                <span id="rolUsuario">-</span>
+                <br><a href="login.html" id="btnLogout" style="color:#ccc;font-size:12px;text-decoration:none;">Cerrar sesión</a>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Dashboard - GRUPO 10 DE INGENIERIA WEB</h1>
+                    <p>Gestión integral de la clínica SERMEDENT</p>
+                </div>
+                <input type="text" placeholder="Buscar pacientes, citas..." />
+            </header>
+
+            <!-- Cards -->
+            <section class="stats">
+                <div class="card">
+                    <h3>Citas del día</h3>
+                    <p id="statCitasHoy">...</p>
+                </div>
+                <div class="card">
+                    <h3>Pacientes activos</h3>
+                    <p id="statPacientes">...</p>
+                </div>
+                <div class="card">
+                    <h3>Alertas de stock</h3>
+                    <p id="statAlertas">...</p>
+                </div>
+                <div class="card">
+                    <h3>Atendidos del mes</h3>
+                    <p id="statAtendidos">...</p>
+                </div>
+            </section>
+
+            <section class="content-grid">
+
+                <!-- Tabla -->
+                <div class="panel appointments">
+                    <div class="panel-header">
+                        <h2>Citas del día</h2>
+                        <button class="btn-cita">+ Nueva cita</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Especialidad</th>
+                                <th>Médico</th>
+                                <th>Hora</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaCitas">
+                            <tr><td colspan="5" style="text-align:center;color:#999;">Cargando citas...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Lado derecho -->
+                <div class="side-panels">
+
+                    <div class="panel calendar">
+                        <h2>Calendario</h2>
+                        <div class="calendar-box">
+                            <p id="calTitulo"></p>
+                            <div class="days" id="calDias"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel inventory">
+                        <h2>Inventario</h2>
+                        <div id="listaInventario">
+                            <p style="color:#999;font-size:13px;">Cargando...</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- BOTÓN -->
+    <button class="floating-btn">+</button>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nueva Cita</h2>
+
+            <form id="formCita">
+
+                <!-- Toggle paciente -->
+                <div class="toggle-paciente">
+                    <button type="button" class="tab-btn active" id="tabExistente">Paciente existente</button>
+                    <button type="button" class="tab-btn" id="tabNuevo">Paciente nuevo</button>
+                </div>
+
+                <!-- Paciente existente -->
+                <div id="panelExistente">
+                    <select id="selectPaciente">
+                        <option value="">-- Seleccionar Paciente --</option>
+                    </select>
+                </div>
+
+                <!-- Paciente nuevo -->
+                <div id="panelNuevo" style="display:none;">
+                    <input type="text" id="nuevoDni" placeholder="DNI *" />
+                    <input type="text" id="nuevoNombres" placeholder="Nombres *" />
+                    <input type="text" id="nuevoApellidos" placeholder="Apellidos *" />
+                    <input type="text" id="nuevoTelefono" placeholder="Teléfono (opcional)" />
+                </div>
+
+                <select id="selectServicio" required>
+                    <option value="">-- Seleccionar Servicio --</option>
+                </select>
+                <select id="selectMedico" required>
+                    <option value="">-- Seleccionar Médico --</option>
+                </select>
+                <input type="date" id="fechaCita" required />
+                <input type="time" id="horaCita" required />
+                <p id="mensajeCita" style="font-size:13px;margin-top:5px;"></p>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

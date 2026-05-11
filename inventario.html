@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario - SERMEDENT</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="container">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>SERMEDENT</h2>
+            <p>Clínica Médica y Dental</p>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Panel Principal</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="historial.html">Historial Clínico</a></li>
+                <li class="active"><a href="inventario.html">Inventario</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </nav>
+        <div class="user-panel">
+            <p id="nombreUsuario">-</p>
+            <span id="rolUsuario">-</span>
+            <br><a href="login.html" id="btnLogout" style="color:#ccc;font-size:12px;text-decoration:none;">Cerrar sesión</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Inventario</h1>
+                <p>Control de insumos y productos</p>
+            </div>
+            <input type="text" id="buscar" placeholder="Buscar producto..." />
+        </header>
+
+        <div class="panel" style="margin-top:20px;">
+            <div class="panel-header">
+                <h2>Productos en inventario</h2>
+                <!-- Leyenda de colores -->
+                <div style="display:flex;gap:12px;font-size:12px;align-items:center;">
+                    <span><span class="status confirmed" style="font-size:11px;">OK</span> Suficiente</span>
+                    <span><span class="status pending" style="font-size:11px;">Bajo</span> Cerca del mínimo</span>
+                    <span><span class="status cancelled" style="font-size:11px;">Crítico</span> Bajo mínimo</span>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Categoría</th>
+                        <th>Stock</th>
+                        <th>Mínimo</th>
+                        <th>Unidad</th>
+                        <th>Estado</th>
+                        <th>Nivel</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaInventario">
+                    <tr><td colspan="7" style="text-align:center;color:#999;">Cargando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+<script src="js/inventario.js"></script>
+</body>
+</html>

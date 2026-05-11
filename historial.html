@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historial Clínico - SERMEDENT</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="container">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>SERMEDENT</h2>
+            <p>Clínica Médica y Dental</p>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Panel Principal</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li class="active"><a href="historial.html">Historial Clínico</a></li>
+                <li><a href="inventario.html">Inventario</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </nav>
+        <div class="user-panel">
+            <p id="nombreUsuario">-</p>
+            <span id="rolUsuario">-</span>
+            <br><a href="login.html" id="btnLogout" style="color:#ccc;font-size:12px;text-decoration:none;">Cerrar sesión</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Historial Clínico</h1>
+                <p>Registro de atenciones médicas</p>
+            </div>
+            <input type="text" id="buscar" placeholder="Buscar por paciente..." />
+        </header>
+
+        <div class="panel" style="margin-top:20px;">
+            <div class="panel-header">
+                <h2>Historial de Atenciones</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Médico</th>
+                        <th>Servicio</th>
+                        <th>Fecha</th>
+                        <th>Diagnóstico</th>
+                        <th>Tratamiento</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaHistorial">
+                    <tr><td colspan="6" style="text-align:center;color:#999;">Cargando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+<script src="js/historial.js"></script>
+</body>
+</html>

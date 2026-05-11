@@ -6,7 +6,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     const error = document.getElementById("error");
 
     try {
-        const response = await fetch("http://localhost:3000/login", {
+        const response = await fetch("/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -18,7 +18,6 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
         if (data.success) {
             localStorage.setItem("login", "true");
-            // Guardar info del usuario para mostrarlo en el sidebar
             localStorage.setItem("usuario", data.user.nombre_usuario);
             localStorage.setItem("rol", data.user.rol);
             window.location.href = "index.html";
